@@ -16,7 +16,7 @@ class Message {
 
 // this method / function modifies our app singleton.
 app.get('/message', (request, response) => {
-  console.log('Somone sent a request!: ' + request.method);
+  console.log('Someone sent a request!: ' + request.method);
 
   response.send(messages);
 });
@@ -33,7 +33,7 @@ function createMessage(req, res, next) {
     next('No text or author');
   } else {
     const message = new Message(messageText, authorName);
-  
+
     // we modify,
     req.message = message;
     next();
