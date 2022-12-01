@@ -8,7 +8,10 @@ Deployment URL: https://express-server-deployment.herokuapp.com/
 
 ## Installation
 
-to install run `git clone git@github.com:JacobKnaack/express-server-deployment.git`
+Install via git:
+
+* http: `git clone https://github.com/JacobKnaack/express-server-deployment.git`
+* ssh: `git clone git@github.com:JacobKnaack/express-server-deployment.git`
 
 `cd` into express-server-deployment
 
@@ -20,15 +23,29 @@ To start server run : `npm start`
 
 To test server run: `npm test`
 
-## Routes
-
-* GET `/message`: returns a list of Message objects
-* POST `/message`: creates a message, saves it and returns the list of messages.
-
 ## Features
 
-* Message:
-  * Contains String: Text
-  * Contains String: Author
-  * Messages can be saves
-  * Full list of messages read.
+### REST API
+
+#### Message
+
+* Model
+  * text: String
+  * author: String
+
+### Route
+
+* Method: `GET`
+* Path: `/message`
+* response:
+  * type: `application/json`
+  * body: `[Message.Model]`
+
+* Method: `POST`
+* path: `/message`
+* queryParams:
+  * text: `?text=String`
+  * author: `?author=String`
+* response:
+  * type: `application/json`
+  * body: `Message.Model`
